@@ -226,65 +226,13 @@
     animation: fadeUp 1s ease 1s forwards;
   }
 
-  /* ── EMAIL CAPTURE / SUBSTACK FORM ── */
-  .email-capture {
-    opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .email-capture p {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--amethyst-light);
-    margin-bottom: 1rem;
-    font-family: 'Cinzel', serif;
-  }
-
-  .email-form {
-    display: flex;
-    gap: 0;
-    border: 1px solid var(--border-glow);
-    border-radius: 2px;
-    overflow: hidden;
-    background: rgba(13,11,18,0.7);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  }
-
-  .email-form input {
-    flex: 1;
-    padding: 0.85rem 1.2rem;
-    background: transparent;
-    border: none;
-    color: var(--cream);
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    outline: none;
-  }
-
-  .email-form input::placeholder { color: rgba(201,191,170,0.4); }
-
-  .email-form button {
-    padding: 0.85rem 1.5rem;
-    background: var(--gold);
-    border: none;
-    color: var(--obsidian);
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    white-space: nowrap;
-  }
-
-  .email-form button:hover { background: var(--gold-light); }
-
+  <div class="email-capture">
+  <p>✦ &nbsp; Join the ARC Waitlist &nbsp; ✦</p>
+  <form class="email-form" action="https://formspree.io/f/mqparvgg" method="POST">
+    <input type="email" name="email" placeholder="your@email.com" required />
+    <button type="submit">Join</button>
+  </form>
+</div>
   .scroll-cue {
     position: absolute;
     bottom: 2rem;
@@ -788,85 +736,33 @@
     margin-bottom: 3rem;
   }
 
-  .contact-form {
-    text-align: left;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group label {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: rgba(13,11,18,0.6);
-    border: 1px solid var(--border-subtle);
-    color: var(--cream);
-    padding: 0.85rem 1rem;
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--gold); }
-
-  .form-group textarea { resize: vertical; min-height: 130px; }
-
-  .form-group select option { background: var(--obsidian); }
-
-  .submit-btn {
-    width: 100%;
-    padding: 1rem;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 0.5rem;
-  }
-
-  .submit-btn:hover {
-    background: var(--gold);
-    color: var(--obsidian);
-  }
-
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid var(--emerald-light);
-    color: var(--gold-light);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-  }
+  <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mzeznlkw" method="POST">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Your name" required />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="your@email.com" required />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Subject</label>
+    <select name="subject" required>
+      <option value="">Select a subject</option>
+      <option>Reader Mail</option>
+      <option>Media &amp; Press</option>
+      <option>Bookstagram / BookTok</option>
+      <option>General Inquiry</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" placeholder="Write your message here..." required></textarea>
+  </div>
+  <button type="submit" class="submit-btn">✦ &nbsp; Send Message &nbsp; ✦</button>
+</form>
 
   /* ── ARC MODAL POPUP ── */
   .modal-overlay {
@@ -1027,16 +923,7 @@
     </div>
     <p class="hero-tagline">"Between two worlds, one woman carries the power of two great bloodlines. The worlds are merging and only she can determine if they are rebuilt or destroyed."</p>
 
-    <div class="email-capture">
-      <p>✦ &nbsp; Join the Chronicles &nbsp; ✦</p>
-      <!-- Substack Action Form -->
-      <form action="https://everlyharlowe.substack.com/subscribe" method="get" target="_blank" class="email-form">
-        <input type="email" name="email" id="hero-email" placeholder="your@email.com" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-  <div class="scroll-cue"><span></span></div>
+
 </section>
 
 <section id="about">
@@ -1055,9 +942,9 @@
       <div class="about-text reveal">
         <p class="section-label">✦ &nbsp; About &nbsp; ✦</p>
         <h2>The Writer<br>Behind the <em>Realm</em></h2>
-        <p>Everly Harlowe writes adult dark fantasy romance for readers who want their hearts broken beautifully. Her debut series, <em>The Lyndere Chronicles</em>, is a world built in the quiet hours—a place where magic is feared in one realm and worshipped in another, and where two people from opposite sides of that divide are destined to change everything.</p>
-        <p>When she isn't writing, she's deep in the lore she's building: tracing maps of mist-shrouded towns, naming creatures that sense emotion, and plotting the kind of slow-burn romance that keeps you up far too late.</p>
-        <p>The Chronicles are just beginning.</p>
+        <p>Everly Harlowe writes adult dark romantasy for readers who want their hearts broken beautifully. Her debut series, <em>The Mist Between Us</em>, is set in a world built in the quiet hours—a place where magic is feared in one realm and worshipped in another, and where two people from opposite sides of that divide are destined to change everything.</p>
+        <p>When she isn't writing, Everly is deep in the lore she's building: tracing maps of mist-shrouded towns, naming creatures that sense emotion, and plotting the kind of slow-burn romance that keeps you up far too late.</p>
+        <p>The Lyndere Chronicles are just beginning.</p>
       </div>
     </div>
   </div>
