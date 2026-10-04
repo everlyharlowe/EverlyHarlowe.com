@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Everly Harlowe | Fantasy Author</title>
+<title>Everly Harlowe | Adult Dark Romantasy Author</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --obsidian: #0d0b12;
@@ -40,7 +40,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* ── NAVIGATION ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -49,7 +49,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 3rem;
-    background: rgba(13, 11, 18, 0.85);
+    background: rgba(13, 11, 18, 0.88);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
   }
@@ -60,12 +60,15 @@
     letter-spacing: 0.3em;
     color: var(--gold);
     text-decoration: none;
+    transition: color 0.3s;
   }
+  .nav-brand:hover { color: var(--gold-light); }
 
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2.2rem;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
@@ -92,19 +95,19 @@
 
   .nav-links a svg {
     display: block;
-    opacity: 0.55;
-    transition: opacity 0.3s, color 0.3s;
+    opacity: 0.65;
+    transition: opacity 0.3s, color 0.3s, transform 0.3s;
     color: var(--cream-muted);
   }
 
   .nav-links a:hover svg {
     opacity: 1;
     color: var(--gold-light);
+    transform: translateY(-1px);
   }
 
   /* ── SECTION SHARED ── */
   section {
-    min-height: 100vh;
     position: relative;
   }
 
@@ -123,28 +126,19 @@
     margin-bottom: 1rem;
   }
 
-  .ornament {
-    display: inline-block;
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    vertical-align: middle;
-    margin: 0 0.8rem;
-    opacity: 0.6;
-  }
-
   /* ── HERO ── */
   #hero {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background:
-      radial-gradient(ellipse at 50% 0%, rgba(107, 63, 160, 0.25) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(30, 58, 110, 0.2) 0%, transparent 50%),
-      radial-gradient(ellipse at 20% 70%, rgba(13, 61, 46, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 0%, rgba(107, 63, 160, 0.3) 0%, transparent 65%),
+      radial-gradient(ellipse at 80% 80%, rgba(30, 58, 110, 0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 70%, rgba(13, 61, 46, 0.2) 0%, transparent 50%),
       var(--obsidian);
-    padding-top: 80px;
+    padding: 100px 2rem 60px;
   }
 
   #hero::before {
@@ -154,21 +148,22 @@
     background-image:
       radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.4) 0%, transparent 100%),
       radial-gradient(1px 1px at 70% 15%, rgba(201,168,76,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 45% 80%, rgba(201,168,76,0.25) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 45% 80%, rgba(201,168,76,0.35) 0%, transparent 100%),
       radial-gradient(1px 1px at 90% 60%, rgba(201,168,76,0.35) 0%, transparent 100%),
       radial-gradient(1px 1px at 10% 65%, rgba(201,168,76,0.2) 0%, transparent 100%),
       radial-gradient(1px 1px at 55% 40%, rgba(155,103,208,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 30% 90%, rgba(155,103,208,0.3) 0%, transparent 100%);
+      radial-gradient(1.5px 1.5px at 30% 90%, rgba(155,103,208,0.35) 0%, transparent 100%);
     pointer-events: none;
   }
 
   .hero-eyebrow {
     font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.5em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.45em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
     opacity: 0;
     animation: fadeUp 1s ease 0.3s forwards;
   }
@@ -215,34 +210,37 @@
     height: 6px;
     background: var(--gold);
     transform: rotate(45deg);
+    box-shadow: 0 0 8px var(--gold-light);
   }
 
   .hero-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-size: clamp(1.05rem, 2.5vw, 1.45rem);
     font-style: italic;
     font-weight: 300;
     color: var(--cream-muted);
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto 3rem;
+    line-height: 1.6;
     opacity: 0;
     animation: fadeUp 1s ease 1s forwards;
   }
 
-  /* ── EMAIL CAPTURE ── */
+  /* ── EMAIL CAPTURE / SUBSTACK FORM ── */
   .email-capture {
     opacity: 0;
     animation: fadeUp 1s ease 1.2s forwards;
-    max-width: 440px;
+    max-width: 480px;
     margin: 0 auto;
   }
 
   .email-capture p {
     font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--amethyst-light);
     margin-bottom: 1rem;
+    font-family: 'Cinzel', serif;
   }
 
   .email-form {
@@ -251,7 +249,8 @@
     border: 1px solid var(--border-glow);
     border-radius: 2px;
     overflow: hidden;
-    background: rgba(13,11,18,0.6);
+    background: rgba(13,11,18,0.7);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
 
   .email-form input {
@@ -276,28 +275,19 @@
     color: var(--obsidian);
     font-family: 'Cinzel', serif;
     font-size: 0.65rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
     white-space: nowrap;
   }
 
   .email-form button:hover { background: var(--gold-light); }
 
-  .email-success {
-    display: none;
-    color: var(--emerald-light);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    margin-top: 0.75rem;
-    text-align: center;
-  }
-
   .scroll-cue {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -316,18 +306,17 @@
   /* ── ABOUT ── */
   #about {
     background:
-      radial-gradient(ellipse at 0% 50%, rgba(30,58,110,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 0% 50%, rgba(30,58,110,0.18) 0%, transparent 50%),
       var(--midnight);
     display: flex;
     align-items: center;
     padding: 8rem 0;
-    min-height: auto;
   }
 
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+    gap: 5rem;
     align-items: center;
   }
 
@@ -363,6 +352,7 @@
     position: relative;
     z-index: 1;
     filter: saturate(0.85) brightness(0.92);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   }
 
   .about-text h2 {
@@ -385,24 +375,23 @@
     line-height: 1.9;
   }
 
-  /* ── SERIES ── */
+  /* ── SERIES / BOOKS ── */
   #series {
     background:
-      radial-gradient(ellipse at 100% 0%, rgba(107,63,160,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(13,61,46,0.15) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%, rgba(107,63,160,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(13,61,46,0.2) 0%, transparent 55%),
       var(--deep-plum);
     padding: 8rem 0;
-    min-height: auto;
   }
 
   .series-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   .series-header h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 300;
     color: var(--cream);
     line-height: 1;
@@ -410,20 +399,221 @@
   }
 
   .series-header p {
-    max-width: 500px;
+    max-width: 580px;
     margin: 0 auto;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--cream-muted);
   }
 
+  /* FEATURED BOOK SPOTLIGHT (BOOK 1) */
+  .featured-book-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3.5rem;
+    background: rgba(13, 11, 18, 0.75);
+    border: 1px solid var(--border-glow);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 0 30px rgba(107,63,160,0.15);
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-book-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* Graphic Teaser Frame */
+  .graphic-teaser-frame {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: radial-gradient(circle at 50% 30%, #1e1330 0%, #0d0b12 85%);
+    border: 1px solid var(--border-glow);
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    overflow: hidden;
+  }
+
+  .graphic-teaser-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    background-image: 
+      radial-gradient(circle at 50% 20%, rgba(155, 103, 208, 0.4), transparent 60%),
+      linear-gradient(180deg, transparent 60%, rgba(13,11,18,0.9) 100%);
+    pointer-events: none;
+  }
+
+  .graphic-teaser-svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  .teaser-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+  }
+
+  .teaser-series-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .teaser-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  }
+
+  .teaser-author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Featured Text & Actions */
+  .featured-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(107, 63, 160, 0.25);
+    border: 1px solid var(--amethyst-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 1.2rem;
+  }
+
+  .status-pulse {
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold);
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  .featured-details h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-details h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .featured-details p {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    margin-bottom: 1.8rem;
+    color: var(--text-body);
+  }
+
+  .arc-cta-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .btn-arc-waitlist {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.8rem;
+    background: linear-gradient(135deg, var(--gold) 0%, #a88432 100%);
+    color: var(--obsidian);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-arc-waitlist:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .arc-note {
+    font-size: 0.78rem;
+    color: var(--cream-muted);
+    font-style: italic;
+  }
+
+  /* Grid for Books 1 through 5 */
   .books-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   .book-card {
     position: relative;
-    cursor: default;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   .book-spine {
@@ -437,17 +627,24 @@
     padding: 1.5rem 0.75rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.4s;
-    background: rgba(13,11,18,0.5);
+    transition: all 0.4s ease;
+    background: rgba(13,11,18,0.6);
   }
 
-  .book-card:nth-child(1) .book-spine { background: linear-gradient(160deg, rgba(107,63,160,0.3) 0%, rgba(13,11,18,0.7) 100%); }
-  .book-card:nth-child(2) .book-spine { background: linear-gradient(160deg, rgba(30,58,110,0.3) 0%, rgba(13,11,18,0.7) 100%); }
-  .book-card:nth-child(3) .book-spine { background: linear-gradient(160deg, rgba(13,61,46,0.35) 0%, rgba(13,11,18,0.7) 100%); }
-  .book-card:nth-child(4) .book-spine { background: linear-gradient(160deg, rgba(139,30,30,0.3) 0%, rgba(13,11,18,0.7) 100%); }
-  .book-card:nth-child(5) .book-spine { background: linear-gradient(160deg, rgba(201,168,76,0.2) 0%, rgba(13,11,18,0.7) 100%); }
+  .book-card:nth-child(1) .book-spine { 
+    background: linear-gradient(160deg, rgba(107,63,160,0.35) 0%, rgba(13,11,18,0.8) 100%); 
+    border-color: var(--border-glow);
+  }
+  .book-card:nth-child(2) .book-spine { background: linear-gradient(160deg, rgba(30,58,110,0.3) 0%, rgba(13,11,18,0.8) 100%); }
+  .book-card:nth-child(3) .book-spine { background: linear-gradient(160deg, rgba(13,61,46,0.35) 0%, rgba(13,11,18,0.8) 100%); }
+  .book-card:nth-child(4) .book-spine { background: linear-gradient(160deg, rgba(139,30,30,0.3) 0%, rgba(13,11,18,0.8) 100%); }
+  .book-card:nth-child(5) .book-spine { background: linear-gradient(160deg, rgba(201,168,76,0.2) 0%, rgba(13,11,18,0.8) 100%); }
 
-  .book-card:hover .book-spine { border-color: var(--gold); }
+  .book-card:hover .book-spine { 
+    border-color: var(--gold); 
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
 
   .book-number {
     font-family: 'Cinzel', serif;
@@ -459,43 +656,34 @@
 
   .book-title-card {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 400;
     color: var(--cream);
     text-align: center;
     line-height: 1.2;
   }
 
-  .book-pov {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    color: var(--cream-muted);
-    margin-top: 0.75rem;
-    text-align: center;
-  }
-
-  .book-coming {
-    position: absolute;
-    bottom: 0.75rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
+  .book-status-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.7;
+    color: var(--gold-light);
+    margin-top: 0.8rem;
+    text-align: center;
+    font-family: 'Cinzel', serif;
   }
 
   /* ── WORLD ── */
   #world {
     background:
-      radial-gradient(ellipse at 50% 100%, rgba(30,58,110,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(30,58,110,0.25) 0%, transparent 60%),
       var(--obsidian);
     padding: 8rem 0;
-    min-height: auto;
   }
 
   .world-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   .world-header h2 {
@@ -509,18 +697,23 @@
   .world-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: 1.5rem;
   }
 
   .world-panel {
     padding: 3rem;
+    background: rgba(18, 14, 31, 0.6);
     border: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
-    transition: border-color 0.4s;
+    transition: all 0.4s ease;
+    border-radius: 2px;
   }
 
-  .world-panel:hover { border-color: rgba(201,168,76,0.4); }
+  .world-panel:hover { 
+    border-color: rgba(201,168,76,0.5); 
+    background: rgba(18, 14, 31, 0.85);
+  }
 
   .world-panel::before {
     content: '';
@@ -537,15 +730,15 @@
 
   .world-panel h3 {
     font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.2em;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
     color: var(--gold);
     margin-bottom: 0.75rem;
   }
 
   .world-panel h4 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: var(--cream);
     margin-bottom: 1rem;
@@ -569,10 +762,9 @@
   /* ── CONTACT ── */
   #contact {
     background:
-      radial-gradient(ellipse at 50% 0%, rgba(107,63,160,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(107,63,160,0.22) 0%, transparent 60%),
       var(--midnight);
     padding: 8rem 0;
-    min-height: auto;
   }
 
   .contact-inner {
@@ -670,11 +862,61 @@
     text-align: center;
     padding: 2rem;
     border: 1px solid var(--emerald-light);
-    color: var(--emerald-light);
+    color: var(--gold-light);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
   }
+
+  /* ── ARC MODAL POPUP ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 11, 18, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 1.5rem;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-box {
+    background: var(--midnight);
+    border: 1px solid var(--border-glow);
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .modal-overlay.active .modal-box {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.2rem; right: 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--cream-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .modal-close:hover { color: var(--gold); }
 
   /* ── FOOTER ── */
   footer {
@@ -726,10 +968,21 @@
     transform: translateY(0);
   }
 
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE STYLES ── */
+  @media (max-width: 900px) {
+    .featured-book-card {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .graphic-teaser-frame {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
+    .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.65rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .books-grid { grid-template-columns: repeat(2, 1fr); }
@@ -737,8 +990,6 @@
     .form-row { grid-template-columns: 1fr; }
   }
 </style>
-  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -765,10 +1016,9 @@
   </ul>
 </nav>
 
-<!-- ══ HERO ══ -->
 <section id="hero">
   <div style="position: relative; z-index: 1; padding: 2rem;">
-    <p class="hero-eyebrow">✦ &nbsp; A new fantasy romance &nbsp; ✦</p>
+    <p class="hero-eyebrow">✦ &nbsp; An Adult Dark Romantasy &nbsp; ✦</p>
     <h1 class="hero-name">Everly<br><em>Harlowe</em></h1>
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
@@ -779,17 +1029,16 @@
 
     <div class="email-capture">
       <p>✦ &nbsp; Join the Chronicles &nbsp; ✦</p>
-      <div class="email-form">
-        <input type="email" id="hero-email" placeholder="your@email.com" />
-        <button onclick="subscribeHero()">Subscribe</button>
-      </div>
-      <p class="email-success" id="hero-success">✦ &nbsp; Welcome to the Chronicles &nbsp; ✦</p>
+      <!-- Substack Action Form -->
+      <form action="https://everlyharlowe.substack.com/subscribe" method="get" target="_blank" class="email-form">
+        <input type="email" name="email" id="hero-email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
     </div>
   </div>
   <div class="scroll-cue"><span></span></div>
 </section>
 
-<!-- ══ ABOUT ══ -->
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -800,31 +1049,150 @@
           <div class="about-photo-corner bl"></div>
           <div class="about-photo-corner br"></div>
         </div>
-        <img src="Everly-Harlowe-profile.jpg" alt="Everly Harlowe" class="about-photo" />
+        <!-- Exact image source specified for GitHub repository -->
+        <img src="Everly-Harlowe-profile.jpg" alt="Everly Harlowe" class="about-photo" onerror="this.onerror=null; this.src='https://placehold.co/400x533/1a0f2e/c9a84c?text=Everly+Harlowe';" />
       </div>
       <div class="about-text reveal">
         <p class="section-label">✦ &nbsp; About &nbsp; ✦</p>
         <h2>The Writer<br>Behind the <em>Realm</em></h2>
-        <p>Everly Harlowe writes fantasy romance for readers who want their hearts broken beautifully. Her debut series, <em>The Lyndere Chronicles</em>, is a world built in the quiet hours, a place where magic is feared in one realm and worshipped in another, and where two people from opposite sides of that divide are destined to change everything.</p>
-        <p>When she isn't writing, she's deep in the lore she's building. Tracing maps of mist-shrouded towns, naming creatures that sense emotion, and plotting the kind of slow-burn romance that makes you stay up far too late.</p>
+        <p>Everly Harlowe writes adult dark fantasy romance for readers who want their hearts broken beautifully. Her debut series, <em>The Lyndere Chronicles</em>, is a world built in the quiet hours—a place where magic is feared in one realm and worshipped in another, and where two people from opposite sides of that divide are destined to change everything.</p>
+        <p>When she isn't writing, she's deep in the lore she's building: tracing maps of mist-shrouded towns, naming creatures that sense emotion, and plotting the kind of slow-burn romance that keeps you up far too late.</p>
         <p>The Chronicles are just beginning.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SERIES ══ -->
 <section id="series">
   <div class="section-inner">
     <div class="series-header reveal">
       <p class="section-label">✦ &nbsp; The Books &nbsp; ✦</p>
       <h2>The Lyndere<br>Chronicles</h2>
-      <p>A five-book series. Two realms on the edge of merging. A love story that spans worlds.</p>
+      <p>A five-book dark romantasy series. Two realms on the edge of merging. A devastating love story that spans worlds.</p>
+    </div>
+
+    <!-- FEATURED BOOK 1 SPOTLIGHT WITH CUSTOM SVG GRAPHIC -->
+    <div class="featured-book-card reveal">
+      <div class="graphic-teaser-frame">
+        <div class="graphic-teaser-bg"></div>
+        
+        <!-- SVG Graphic Rendering Gothic Architecture & Magic Necklace Details -->
+        <svg class="graphic-teaser-svg" viewBox="0 0 300 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Gothic Vaulted Arches Backdrop -->
+          <path d="M 30 450 V 160 Q 150 20 270 160 V 450" stroke="rgba(201, 168, 76, 0.25)" stroke-width="1.5" fill="none" />
+          <path d="M 50 450 V 175 Q 150 50 250 175 V 450" stroke="rgba(107, 63, 160, 0.3)" stroke-width="1" fill="none" />
+          
+          <!-- Stained Glass Window Accent Top -->
+          <circle cx="150" cy="110" r="38" stroke="rgba(201, 168, 76, 0.4)" stroke-width="1" fill="rgba(30, 58, 110, 0.2)" />
+          <path d="M 150 72 V 148 M 112 110 H 188" stroke="rgba(201, 168, 76, 0.25)" stroke-width="1" />
+          
+          <!-- Candlelight Flame Accents -->
+          <circle cx="45" cy="220" r="2" fill="#e8c97a" />
+          <circle cx="45" cy="220" r="8" fill="rgba(232, 201, 122, 0.25)" />
+          <path d="M 45 228 V 250" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" />
+          
+          <circle cx="255" cy="220" r="2" fill="#e8c97a" />
+          <circle cx="255" cy="220" r="8" fill="rgba(232, 201, 122, 0.25)" />
+          <path d="M 255 228 V 250" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" />
+
+          <!-- Center Emblem: Laurel Wreath & Hummingbird Pendant -->
+          <path d="M 120 180 Q 150 230 180 180" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" />
+          <circle cx="150" cy="255" r="42" stroke="url(#goldGrad)" stroke-width="2" fill="rgba(13,11,18,0.7)" />
+          
+          <!-- Leaf Motifs -->
+          <path d="M 150 208 Q 140 215 145 225 Q 155 220 150 208 Z" fill="url(#goldGrad)" />
+          <path d="M 150 208 Q 160 215 155 225 Q 145 220 150 208 Z" fill="url(#goldGrad)" />
+          <path d="M 192 255 Q 185 245 175 250 Q 180 260 192 255 Z" fill="url(#goldGrad)" />
+          <path d="M 108 255 Q 115 245 125 250 Q 120 260 108 255 Z" fill="url(#goldGrad)" />
+          
+          <!-- Amethyst Gem Hummingbird Centerpiece -->
+          <path d="M 142 250 Q 152 235 162 245 Q 152 255 142 250 Z" fill="#9b67d0" />
+          <path d="M 148 253 L 165 240 L 158 258 Z" fill="url(#goldGrad)" />
+          <path d="M 142 250 L 132 247" stroke="url(#goldGrad)" stroke-width="1.2" />
+          <path d="M 150 252 Q 155 268 152 274 Q 146 265 150 252 Z" fill="#6b3fa0" stroke="url(#goldGrad)" stroke-width="0.8" />
+          
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8c97a" />
+              <stop offset="100%" stop-color="#c9a84c" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="teaser-content">
+          <p class="teaser-series-tag">The Lyndere Chronicles</p>
+          <h3 class="teaser-title">The Mist Between Us</h3>
+        </div>
+
+        <div class="teaser-author">Everly Harlowe</div>
+      </div>
+
+      <!-- Featured Text Details & ARC CTA -->
+      <div class="featured-details">
+        <div class="status-badge">
+          <span class="status-pulse"></span>
+          Currently in Progress · Draft 2 · Coming Soon
+        </div>
+
+        <h3>The Mist Between Us</h3>
+        <h4>Volume One of The Lyndere Chronicles</h4>
+
+        <p>In a mist-choked realm where magic is hunted, one young woman carries a secret that could break two worlds. When the veil between Greyveil and the luminescent realm of Lyndere begins to fracture, she is thrust into the path of a dangerous, soul-bound enemy—and a romance that threatens to burn both realms to ash.</p>
+
+        <div class="arc-cta-box">
+          <button class="btn-arc-waitlist" onclick="openArcModal()">
+            ✦ Join the ARC Waitlist
+          </button>
+          <span class="arc-note">Be the first to receive an Advanced Reader Copy before release.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Book Series Overview Grid -->
+    <div class="books-grid reveal">
+      <div class="book-card" onclick="openArcModal()">
+        <div class="book-spine">
+          <div class="book-number">Book I</div>
+          <div class="book-title-card">The Mist Between Us</div>
+          <div class="book-status-tag">Draft 2</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-spine">
+          <div class="book-number">Book II</div>
+          <div class="book-title-card">Untitled</div>
+          <div class="book-status-tag" style="opacity: 0.5;">In Development</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-spine">
+          <div class="book-number">Book III</div>
+          <div class="book-title-card">Untitled</div>
+          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-spine">
+          <div class="book-number">Book IV</div>
+          <div class="book-title-card">Untitled</div>
+          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-spine">
+          <div class="book-number">Book V</div>
+          <div class="book-title-card">Untitled</div>
+          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ WORLD ══ -->
 <section id="world">
   <div class="section-inner">
     <div class="world-header reveal">
@@ -836,40 +1204,44 @@
       <div class="world-panel realm-mortal reveal">
         <h3>The Mortal Realm</h3>
         <h4>Greyveil</h4>
-        <p>A bleak, mist-shrouded world where magic is not merely distrusted, it is hunted. Those born with power live hidden lives or die for them.</p>
+        <p>A bleak, mist-shrouded world where magic is not merely distrusted—it is hunted. Those born with power live hidden lives or pay with their blood.</p>
         <div class="world-detail">Magic feared &nbsp;·&nbsp; Practitioners killed &nbsp;·&nbsp; Eternal mist</div>
       </div>
 
       <div class="world-panel realm-lyndere reveal">
         <h3>The Magical Realm</h3>
-        <h4>Lyndere <em style="font-family: Cormorant Garamond; color: var(--cream-muted); font-size: 0.85rem;">(Lin-DEER)</em></h4>
-        <p>Temperate and luminescent, Lyndere is beautiful in the way a blade is beautiful, it will take your breath away and it will cut you. Magic is worshipped here, woven into every living thing. But something is fracturing, and the two realms are beginning to merge.</p>
+        <h4>Lyndere <em style="font-family: Cormorant Garamond; color: var(--cream-muted); font-size: 0.9rem;">(Lin-DEER)</em></h4>
+        <p>Temperate and luminescent, Lyndere is beautiful in the way a blade is beautiful—it will take your breath away and it will cut you. Magic is worshipped here, woven into every living thing. But something is fracturing, and the two realms are merging.</p>
         <div class="world-detail">Luminescent &nbsp;·&nbsp; Magical &nbsp;·&nbsp; Merging crisis</div>
       </div>
 
       <div class="world-panel realm-magic reveal">
         <h3>The Five Forces</h3>
-        <h4>Magic of<br>the Realm</h4>
-        <p>Magic in Lyndere flows through five forces: emotion, dreams and the subconscious, music and sound, memory and time, and creatures and beasts.</p>
+        <h4>Magic of the Realm</h4>
+        <p>Magic in Lyndere flows through five fundamental forces: emotion, dreams and the subconscious, music and sound, memory and time, and creatures and beasts.</p>
         <div class="world-detail">Emotion &nbsp;·&nbsp; Dreams &nbsp;·&nbsp; Music &nbsp;·&nbsp; Memory &nbsp;·&nbsp; Beasts</div>
       </div>
 
       <div class="world-panel realm-threat reveal">
         <h3>The Threat</h3>
-        <h4>The Vorrkai &amp;<br>Malabriel</h4>
-        <p>The Vorrkai are mostly humanoid with predatory eyes, iridescent skin, magic that feeds on others.</p>
+        <h4>The Vorrkai &amp; Malabriel</h4>
+        <p>The Vorrkai are predatory beings with iridescent skin and absorptive magic that feeds on others. Bound in shadow, their ancient leader seeks to tear open the seals between realms.</p>
         <div class="world-detail">Absorptive magic &nbsp;·&nbsp; Exiled &nbsp;·&nbsp; Seal-breaker</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label reveal">✦ &nbsp; Reach Out &nbsp; ✦</p>
     <h2 class="reveal">Let's<br><em style="font-family: Cormorant Garamond; font-style: italic; color: var(--amethyst-light);">Connect</em></h2>
     <p class="reveal">For media inquiries, reader mail, or to say hello from your corner of the realm.</p>
+
+    <!-- Substack Official Embed Box Component -->
+    <div class="reveal" style="margin-bottom: 3rem; display: flex; justify-content: center;">
+      <iframe src="https://everlyharlowe.substack.com/embed?transparent=1&light=1" width="100%" height="200" style="border: 0; background: transparent; max-width: 480px;" frameborder="0" scrolling="no"></iframe>
+    </div>
 
     <div class="contact-form reveal" id="contact-form">
       <div class="form-row">
@@ -886,6 +1258,7 @@
         <label>Subject</label>
         <select id="c-subject">
           <option value="">Select a subject</option>
+          <option>ARC Team &amp; Beta Reading</option>
           <option>Reader Mail</option>
           <option>Media &amp; Press</option>
           <option>Bookstagram / BookTok</option>
@@ -905,14 +1278,48 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<div class="modal-overlay" id="arcModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeArcModal()">&times;</button>
+    <p class="section-label" style="text-align: center;">✦ &nbsp; Advanced Reader Copy &nbsp; ✦</p>
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; text-align: center; color: var(--cream); margin-bottom: 0.5rem;">
+      Join the Book 1 ARC Waitlist
+    </h3>
+    <p style="font-size: 0.85rem; text-align: center; margin-bottom: 1.8rem; color: var(--cream-muted);">
+      Receive an early review copy of <em>The Mist Between Us</em> before official release in exchange for an honest review.
+    </p>
+
+    <div id="arc-form-content">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="arc-name" placeholder="Your name" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="arc-email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Preferred Platform (Goodreads, BookTok, Instagram, Amazon)</label>
+        <input type="text" id="arc-platform" placeholder="e.g. @username on TikTok or Goodreads profile" />
+      </div>
+      <button class="submit-btn" onclick="submitArcForm()" style="margin-top: 1rem;">
+        ✦ &nbsp; Reserve My ARC Spot &nbsp; ✦
+      </button>
+    </div>
+
+    <div class="form-success" id="arc-success">
+      ✦ &nbsp; You are on the waitlist! You will be notified as soon as ARCs are ready to distribute. &nbsp; ✦
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-brand">Everly Harlowe</div>
   <p>© 2025 Everly Harlowe &nbsp;·&nbsp; All rights reserved</p>
 </footer>
 
 <script>
-  // Scroll reveal
+  // Scroll reveal animation observer
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -923,25 +1330,59 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Email subscribe
-  function subscribeHero() {
-    const email = document.getElementById('hero-email').value;
-    if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
-    document.querySelector('.email-form').style.display = 'none';
-    document.getElementById('hero-success').style.display = 'block';
-  }
-
-  // Contact form
+  // Contact form submission handler
   function submitContact() {
     const name = document.getElementById('c-name').value;
     const email = document.getElementById('c-email').value;
     const msg = document.getElementById('c-message').value;
-    if (!name || !email || !msg) { alert('Please fill in all required fields.'); return; }
+    if (!name || !email || !msg) { 
+      showCustomAlert('Please fill in all required fields.'); 
+      return; 
+    }
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('contact-success').style.display = 'block';
   }
 
-  // Nav active link
+  // ARC Modal Controls
+  function openArcModal() {
+    document.getElementById('arcModal').classList.add('active');
+  }
+
+  function closeArcModal() {
+    document.getElementById('arcModal').classList.remove('active');
+  }
+
+  function submitArcForm() {
+    const name = document.getElementById('arc-name').value;
+    const email = document.getElementById('arc-email').value;
+    if (!name || !email || !email.includes('@')) {
+      showCustomAlert('Please fill in your name and a valid email address.');
+      return;
+    }
+    document.getElementById('arc-form-content').style.display = 'none';
+    document.getElementById('arc-success').style.display = 'block';
+  }
+
+  // Custom inline message notification banner
+  function showCustomAlert(msg) {
+    const notification = document.createElement('div');
+    notification.innerText = msg;
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.backgroundColor = 'var(--deep-plum)';
+    notification.style.color = 'var(--gold-light)';
+    notification.style.border = '1px solid var(--gold)';
+    notification.style.padding = '1rem 1.5rem';
+    notification.style.zIndex = '2000';
+    notification.style.fontFamily = 'Raleway, sans-serif';
+    notification.style.fontSize = '0.85rem';
+    notification.style.boxShadow = '0 5px 20px rgba(0,0,0,0.8)';
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3500);
+  }
+
+  // Active link highlighters
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
