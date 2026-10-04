@@ -107,9 +107,7 @@
   }
 
   /* ── SECTION SHARED ── */
-  section {
-    position: relative;
-  }
+  section { position: relative; }
 
   .section-inner {
     max-width: 1100px;
@@ -126,6 +124,72 @@
     margin-bottom: 1rem;
   }
 
+  /* ── FORM STYLING (DARK OBSIDIAN THEME) ── */
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    background: rgba(18, 14, 31, 0.85) !important;
+    color: var(--cream) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 2px;
+    padding: 0.85rem 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.25);
+  }
+
+  select option {
+    background: var(--midnight);
+    color: var(--cream);
+  }
+
+  label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group { margin-bottom: 1.5rem; text-align: left; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--gold) 0%, #a88432 100%);
+    color: var(--obsidian);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5);
+    transform: translateY(-2px);
+  }
+
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
@@ -138,22 +202,7 @@
       radial-gradient(ellipse at 80% 80%, rgba(30, 58, 110, 0.25) 0%, transparent 55%),
       radial-gradient(ellipse at 20% 70%, rgba(13, 61, 46, 0.2) 0%, transparent 50%),
       var(--obsidian);
-    padding: 100px 2rem 60px;
-  }
-
-  #hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 70% 15%, rgba(201,168,76,0.3) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 45% 80%, rgba(201,168,76,0.35) 0%, transparent 100%),
-      radial-gradient(1px 1px at 90% 60%, rgba(201,168,76,0.35) 0%, transparent 100%),
-      radial-gradient(1px 1px at 10% 65%, rgba(201,168,76,0.2) 0%, transparent 100%),
-      radial-gradient(1px 1px at 55% 40%, rgba(155,103,208,0.4) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 30% 90%, rgba(155,103,208,0.35) 0%, transparent 100%);
-    pointer-events: none;
+    padding: 120px 2rem 80px;
   }
 
   .hero-eyebrow {
@@ -164,7 +213,6 @@
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 1.8rem;
-    opacity: 0;
     animation: fadeUp 1s ease 0.3s forwards;
   }
 
@@ -176,7 +224,6 @@
     line-height: 0.9;
     letter-spacing: 0.02em;
     margin-bottom: 1.5rem;
-    opacity: 0;
     animation: fadeUp 1.2s ease 0.5s forwards;
   }
 
@@ -191,8 +238,6 @@
     justify-content: center;
     gap: 1rem;
     margin: 1.5rem 0;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.8s forwards;
   }
 
   .hero-divider-line {
@@ -200,10 +245,7 @@
     height: 1px;
     background: linear-gradient(to right, transparent, var(--gold));
   }
-
-  .hero-divider-line.right {
-    background: linear-gradient(to left, transparent, var(--gold));
-  }
+  .hero-divider-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
 
   .hero-divider-gem {
     width: 6px;
@@ -220,44 +262,49 @@
     font-weight: 300;
     color: var(--cream-muted);
     max-width: 620px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2.5rem;
     line-height: 1.6;
-    opacity: 0;
-    animation: fadeUp 1s ease 1s forwards;
   }
 
-  <div class="email-capture">
-  <p>✦ &nbsp; Join the ARC Waitlist &nbsp; ✦</p>
-  <form class="email-form" action="https://formspree.io/f/mqparvgg" method="POST">
-    <input type="email" name="email" placeholder="your@email.com" required />
-    <button type="submit">Join</button>
-  </form>
-</div>
-  .scroll-cue {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: fadeIn 1s ease 2s forwards;
-  }
-
-  .scroll-cue span {
-    display: block;
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
+  .email-capture {
+    max-width: 460px;
     margin: 0 auto;
-    animation: scrollDrop 2s ease infinite;
+    padding: 1.8rem;
+    background: rgba(26, 15, 46, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
+
+  .email-capture p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .email-form { display: flex; gap: 0.5rem; }
+  .email-form input { flex: 1; }
+  .email-form button {
+    padding: 0.85rem 1.5rem;
+    background: var(--gold);
+    color: var(--obsidian);
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .email-form button:hover { background: var(--gold-light); }
 
   /* ── ABOUT ── */
   #about {
     background:
       radial-gradient(ellipse at 0% 50%, rgba(30,58,110,0.18) 0%, transparent 50%),
       var(--midnight);
-    display: flex;
-    align-items: center;
     padding: 8rem 0;
   }
 
@@ -268,9 +315,7 @@
     align-items: center;
   }
 
-  .about-photo-wrap {
-    position: relative;
-  }
+  .about-photo-wrap { position: relative; }
 
   .about-photo-frame {
     position: absolute;
@@ -280,12 +325,7 @@
     z-index: 0;
   }
 
-  .about-photo-corner {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-  }
-
+  .about-photo-corner { position: absolute; width: 20px; height: 20px; }
   .about-photo-corner.tl { top: -12px; left: -12px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
   .about-photo-corner.tr { top: -12px; right: -12px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
   .about-photo-corner.bl { bottom: -12px; left: -12px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
@@ -312,16 +352,8 @@
     margin-bottom: 1.5rem;
   }
 
-  .about-text h2 em {
-    font-style: italic;
-    color: var(--amethyst-light);
-  }
-
-  .about-text p {
-    margin-bottom: 1.2rem;
-    font-size: 0.95rem;
-    line-height: 1.9;
-  }
+  .about-text h2 em { font-style: italic; color: var(--amethyst-light); }
+  .about-text p { margin-bottom: 1.2rem; font-size: 0.95rem; line-height: 1.9; }
 
   /* ── SERIES / BOOKS ── */
   #series {
@@ -332,11 +364,7 @@
     padding: 8rem 0;
   }
 
-  .series-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
+  .series-header { text-align: center; margin-bottom: 4rem; }
   .series-header h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -345,15 +373,8 @@
     line-height: 1;
     margin: 0.5rem 0 1rem;
   }
+  .series-header p { max-width: 580px; margin: 0 auto; font-size: 0.95rem; color: var(--cream-muted); }
 
-  .series-header p {
-    max-width: 580px;
-    margin: 0 auto;
-    font-size: 0.95rem;
-    color: var(--cream-muted);
-  }
-
-  /* FEATURED BOOK SPOTLIGHT (BOOK 1) */
   .featured-book-card {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -376,7 +397,6 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
-  /* Graphic Teaser Frame */
   .graphic-teaser-frame {
     width: 100%;
     aspect-ratio: 2/3;
@@ -403,56 +423,13 @@
     pointer-events: none;
   }
 
-  .graphic-teaser-svg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-  }
+  .graphic-teaser-svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+  .teaser-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+  .teaser-series-tag { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.25rem; }
+  .teaser-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--cream); letter-spacing: 0.05em; line-height: 1.1; }
+  .teaser-author { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold-light); text-transform: uppercase; margin-top: auto; position: relative; z-index: 2; }
 
-  .teaser-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-  }
-
-  .teaser-series-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.35em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
-
-  .teaser-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--cream);
-    letter-spacing: 0.05em;
-    line-height: 1.1;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
-  }
-
-  .teaser-author {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    margin-top: auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Featured Text & Actions */
-  .featured-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  .featured-details { display: flex; flex-direction: column; justify-content: center; }
 
   .status-badge {
     display: inline-flex;
@@ -485,39 +462,11 @@
     50% { opacity: 0.4; transform: scale(0.85); }
   }
 
-  .featured-details h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
+  .featured-details h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 0.5rem; }
+  .featured-details h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.2rem; text-transform: uppercase; }
+  .featured-details p { font-size: 0.92rem; line-height: 1.85; margin-bottom: 1.8rem; color: var(--text-body); }
 
-  .featured-details h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-  }
-
-  .featured-details p {
-    font-size: 0.92rem;
-    line-height: 1.85;
-    margin-bottom: 1.8rem;
-    color: var(--text-body);
-  }
-
-  .arc-cta-box {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-subtle);
-  }
+  .arc-cta-box { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); }
 
   .btn-arc-waitlist {
     display: inline-flex;
@@ -531,7 +480,6 @@
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    text-decoration: none;
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -545,24 +493,11 @@
     transform: translateY(-2px);
   }
 
-  .arc-note {
-    font-size: 0.78rem;
-    color: var(--cream-muted);
-    font-style: italic;
-  }
+  .arc-note { font-size: 0.78rem; color: var(--cream-muted); font-style: italic; }
 
-  /* Grid for Books 1 through 5 */
-  .books-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.2rem;
-  }
+  .books-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
 
-  .book-card {
-    position: relative;
-    cursor: pointer;
-    text-decoration: none;
-  }
+  .book-card { position: relative; cursor: pointer; text-decoration: none; }
 
   .book-spine {
     width: 100%;
@@ -579,74 +514,28 @@
     background: rgba(13,11,18,0.6);
   }
 
-  .book-card:nth-child(1) .book-spine { 
-    background: linear-gradient(160deg, rgba(107,63,160,0.35) 0%, rgba(13,11,18,0.8) 100%); 
-    border-color: var(--border-glow);
-  }
+  .book-card:nth-child(1) .book-spine { background: linear-gradient(160deg, rgba(107,63,160,0.35) 0%, rgba(13,11,18,0.8) 100%); border-color: var(--border-glow); }
   .book-card:nth-child(2) .book-spine { background: linear-gradient(160deg, rgba(30,58,110,0.3) 0%, rgba(13,11,18,0.8) 100%); }
   .book-card:nth-child(3) .book-spine { background: linear-gradient(160deg, rgba(13,61,46,0.35) 0%, rgba(13,11,18,0.8) 100%); }
   .book-card:nth-child(4) .book-spine { background: linear-gradient(160deg, rgba(139,30,30,0.3) 0%, rgba(13,11,18,0.8) 100%); }
   .book-card:nth-child(5) .book-spine { background: linear-gradient(160deg, rgba(201,168,76,0.2) 0%, rgba(13,11,18,0.8) 100%); }
 
-  .book-card:hover .book-spine { 
-    border-color: var(--gold); 
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-  }
+  .book-card:hover .book-spine { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
 
-  .book-number {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .book-title-card {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--cream);
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .book-status-tag {
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-top: 0.8rem;
-    text-align: center;
-    font-family: 'Cinzel', serif;
-  }
+  .book-number { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.75rem; }
+  .book-title-card { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; color: var(--cream); text-align: center; line-height: 1.2; }
+  .book-status-tag { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-top: 0.8rem; text-align: center; font-family: 'Cinzel', serif; }
 
   /* ── WORLD ── */
   #world {
-    background:
-      radial-gradient(ellipse at 50% 100%, rgba(30,58,110,0.25) 0%, transparent 60%),
-      var(--obsidian);
+    background: radial-gradient(ellipse at 50% 100%, rgba(30,58,110,0.25) 0%, transparent 60%), var(--obsidian);
     padding: 8rem 0;
   }
 
-  .world-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
+  .world-header { text-align: center; margin-bottom: 4rem; }
+  .world-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--cream); margin: 0.5rem 0 1rem; }
 
-  .world-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 300;
-    color: var(--cream);
-    margin: 0.5rem 0 1rem;
-  }
-
-  .world-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
+  .world-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
   .world-panel {
     padding: 3rem;
@@ -658,111 +547,30 @@
     border-radius: 2px;
   }
 
-  .world-panel:hover { 
-    border-color: rgba(201,168,76,0.5); 
-    background: rgba(18, 14, 31, 0.85);
-  }
+  .world-panel:hover { border-color: rgba(201,168,76,0.5); background: rgba(18, 14, 31, 0.85); }
 
-  .world-panel::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-  }
-
+  .world-panel::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
   .world-panel.realm-mortal::before { background: linear-gradient(to bottom, var(--sapphire-light), transparent); }
   .world-panel.realm-lyndere::before { background: linear-gradient(to bottom, var(--amethyst-light), transparent); }
   .world-panel.realm-magic::before { background: linear-gradient(to bottom, var(--emerald-light), transparent); }
   .world-panel.realm-threat::before { background: linear-gradient(to bottom, #8b1e1e, transparent); }
 
-  .world-panel h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.25em;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-
-  .world-panel h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 1rem;
-    line-height: 1.1;
-  }
-
-  .world-panel p {
-    font-size: 0.88rem;
-    line-height: 1.85;
-  }
-
-  .world-detail {
-    margin-top: 1.2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--border-subtle);
-    font-size: 0.78rem;
-    color: var(--cream-muted);
-    letter-spacing: 0.03em;
-  }
+  .world-panel h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 0.75rem; }
+  .world-panel h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--cream); margin-bottom: 1rem; line-height: 1.1; }
+  .world-panel p { font-size: 0.88rem; line-height: 1.85; }
+  .world-detail { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border-subtle); font-size: 0.78rem; color: var(--cream-muted); letter-spacing: 0.03em; }
 
   /* ── CONTACT ── */
   #contact {
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(107,63,160,0.22) 0%, transparent 60%),
-      var(--midnight);
+    background: radial-gradient(ellipse at 50% 0%, rgba(107,63,160,0.22) 0%, transparent 60%), var(--midnight);
     padding: 8rem 0;
   }
 
-  .contact-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 2rem;
-  }
+  .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; padding: 0 2rem; }
+  .contact-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--cream); margin: 0.5rem 0 1rem; line-height: 1.1; }
+  .contact-inner p { font-size: 0.9rem; margin-bottom: 3rem; }
 
-  .contact-inner h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    color: var(--cream);
-    margin: 0.5rem 0 1rem;
-    line-height: 1.1;
-  }
-
-  .contact-inner p {
-    font-size: 0.9rem;
-    margin-bottom: 3rem;
-  }
-
-  <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mzeznlkw" method="POST">
-  <div class="form-row">
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" placeholder="Your name" required />
-    </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="your@email.com" required />
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Subject</label>
-    <select name="subject" required>
-      <option value="">Select a subject</option>
-      <option>Reader Mail</option>
-      <option>Media &amp; Press</option>
-      <option>Bookstagram / BookTok</option>
-      <option>General Inquiry</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Message</label>
-    <textarea name="message" placeholder="Write your message here..." required></textarea>
-  </div>
-  <button type="submit" class="submit-btn">✦ &nbsp; Send Message &nbsp; ✦</button>
-</form>
+  .contact-form { margin-top: 2rem; }
 
   /* ── ARC MODAL POPUP ── */
   .modal-overlay {
@@ -780,10 +588,7 @@
     padding: 1.5rem;
   }
 
-  .modal-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
   .modal-box {
     background: var(--midnight);
@@ -796,11 +601,10 @@
     box-shadow: 0 20px 50px rgba(0,0,0,0.9);
     transform: translateY(20px);
     transition: transform 0.4s ease;
+    text-align: center;
   }
 
-  .modal-overlay.active .modal-box {
-    transform: translateY(0);
-  }
+  .modal-overlay.active .modal-box { transform: translateY(0); }
 
   .modal-close {
     position: absolute;
@@ -822,35 +626,13 @@
     text-align: center;
   }
 
-  footer .footer-brand {
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  footer p {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: rgba(201,191,170,0.4);
-  }
+  footer .footer-brand { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.5rem; }
+  footer p { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(201,191,170,0.4); }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes scrollDrop {
-    0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
   }
 
   .reveal {
@@ -859,21 +641,12 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── RESPONSIVE STYLES ── */
   @media (max-width: 900px) {
-    .featured-book-card {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .graphic-teaser-frame {
-      max-width: 280px;
-      margin: 0 auto;
-    }
+    .featured-book-card { grid-template-columns: 1fr; gap: 2rem; }
+    .graphic-teaser-frame { max-width: 280px; margin: 0 auto; }
   }
 
   @media (max-width: 768px) {
@@ -923,7 +696,14 @@
     </div>
     <p class="hero-tagline">"Between two worlds, one woman carries the power of two great bloodlines. The worlds are merging and only she can determine if they are rebuilt or destroyed."</p>
 
-
+    <div class="email-capture">
+      <p>✦ &nbsp; Join the ARC Waitlist &nbsp; ✦</p>
+      <form class="email-form" action="https://formspree.io/f/mqparvgg" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Join</button>
+      </form>
+    </div>
+  </div>
 </section>
 
 <section id="about">
@@ -936,7 +716,6 @@
           <div class="about-photo-corner bl"></div>
           <div class="about-photo-corner br"></div>
         </div>
-        <!-- Exact image source specified for GitHub repository -->
         <img src="Everly-Harlowe-profile.jpg" alt="Everly Harlowe" class="about-photo" onerror="this.onerror=null; this.src='https://placehold.co/400x533/1a0f2e/c9a84c?text=Everly+Harlowe';" />
       </div>
       <div class="about-text reveal">
@@ -963,17 +742,13 @@
       <div class="graphic-teaser-frame">
         <div class="graphic-teaser-bg"></div>
         
-        <!-- SVG Graphic Rendering Gothic Architecture & Magic Necklace Details -->
         <svg class="graphic-teaser-svg" viewBox="0 0 300 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Gothic Vaulted Arches Backdrop -->
           <path d="M 30 450 V 160 Q 150 20 270 160 V 450" stroke="rgba(201, 168, 76, 0.25)" stroke-width="1.5" fill="none" />
           <path d="M 50 450 V 175 Q 150 50 250 175 V 450" stroke="rgba(107, 63, 160, 0.3)" stroke-width="1" fill="none" />
           
-          <!-- Stained Glass Window Accent Top -->
           <circle cx="150" cy="110" r="38" stroke="rgba(201, 168, 76, 0.4)" stroke-width="1" fill="rgba(30, 58, 110, 0.2)" />
           <path d="M 150 72 V 148 M 112 110 H 188" stroke="rgba(201, 168, 76, 0.25)" stroke-width="1" />
           
-          <!-- Candlelight Flame Accents -->
           <circle cx="45" cy="220" r="2" fill="#e8c97a" />
           <circle cx="45" cy="220" r="8" fill="rgba(232, 201, 122, 0.25)" />
           <path d="M 45 228 V 250" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" />
@@ -982,17 +757,14 @@
           <circle cx="255" cy="220" r="8" fill="rgba(232, 201, 122, 0.25)" />
           <path d="M 255 228 V 250" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" />
 
-          <!-- Center Emblem: Laurel Wreath & Hummingbird Pendant -->
           <path d="M 120 180 Q 150 230 180 180" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" />
           <circle cx="150" cy="255" r="42" stroke="url(#goldGrad)" stroke-width="2" fill="rgba(13,11,18,0.7)" />
           
-          <!-- Leaf Motifs -->
           <path d="M 150 208 Q 140 215 145 225 Q 155 220 150 208 Z" fill="url(#goldGrad)" />
           <path d="M 150 208 Q 160 215 155 225 Q 145 220 150 208 Z" fill="url(#goldGrad)" />
           <path d="M 192 255 Q 185 245 175 250 Q 180 260 192 255 Z" fill="url(#goldGrad)" />
           <path d="M 108 255 Q 115 245 125 250 Q 120 260 108 255 Z" fill="url(#goldGrad)" />
           
-          <!-- Amethyst Gem Hummingbird Centerpiece -->
           <path d="M 142 250 Q 152 235 162 245 Q 152 255 142 250 Z" fill="#9b67d0" />
           <path d="M 148 253 L 165 240 L 158 258 Z" fill="url(#goldGrad)" />
           <path d="M 142 250 L 132 247" stroke="url(#goldGrad)" stroke-width="1.2" />
@@ -1014,7 +786,6 @@
         <div class="teaser-author">Everly Harlowe</div>
       </div>
 
-      <!-- Featured Text Details & ARC CTA -->
       <div class="featured-details">
         <div class="status-badge">
           <span class="status-pulse"></span>
@@ -1039,41 +810,41 @@
     <div class="books-grid reveal">
       <div class="book-card" onclick="openArcModal()">
         <div class="book-spine">
-          <div class="book-number">Book I</div>
-          <div class="book-title-card">The Mist Between Us</div>
-          <div class="book-status-tag">Draft 2</div>
+          <span class="book-number">Book 01</span>
+          <h3 class="book-title-card">The Mist Between Us</h3>
+          <span class="book-status-tag">Drafting</span>
         </div>
       </div>
 
       <div class="book-card">
         <div class="book-spine">
-          <div class="book-number">Book II</div>
-          <div class="book-title-card">Untitled</div>
-          <div class="book-status-tag" style="opacity: 0.5;">In Development</div>
+          <span class="book-number">Book 02</span>
+          <h3 class="book-title-card">Untitled</h3>
+          <span class="book-status-tag">Planned</span>
         </div>
       </div>
 
       <div class="book-card">
         <div class="book-spine">
-          <div class="book-number">Book III</div>
-          <div class="book-title-card">Untitled</div>
-          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+          <span class="book-number">Book 03</span>
+          <h3 class="book-title-card">Untitled</h3>
+          <span class="book-status-tag">Planned</span>
         </div>
       </div>
 
       <div class="book-card">
         <div class="book-spine">
-          <div class="book-number">Book IV</div>
-          <div class="book-title-card">Untitled</div>
-          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+          <span class="book-number">Book 04</span>
+          <h3 class="book-title-card">Untitled</h3>
+          <span class="book-status-tag">Planned</span>
         </div>
       </div>
 
       <div class="book-card">
         <div class="book-spine">
-          <div class="book-number">Book V</div>
-          <div class="book-title-card">Untitled</div>
-          <div class="book-status-tag" style="opacity: 0.5;">Planned</div>
+          <span class="book-number">Book 05</span>
+          <h3 class="book-title-card">Untitled</h3>
+          <span class="book-status-tag">Planned</span>
         </div>
       </div>
     </div>
@@ -1083,64 +854,62 @@
 <section id="world">
   <div class="section-inner">
     <div class="world-header reveal">
-      <p class="section-label">✦ &nbsp; Lore &nbsp; ✦</p>
-      <h2>The World of<br>the Chronicles</h2>
+      <p class="section-label">✦ &nbsp; Lore &amp; Setting &nbsp; ✦</p>
+      <h2>Two Realms,<br>One Fractured Veil</h2>
     </div>
 
     <div class="world-grid">
       <div class="world-panel realm-mortal reveal">
         <h3>The Mortal Realm</h3>
         <h4>Greyveil</h4>
-        <p>A bleak, mist-shrouded world where magic is not merely distrusted—it is hunted. Those born with power live hidden lives or pay with their blood.</p>
-        <div class="world-detail">Magic feared &nbsp;·&nbsp; Practitioners killed &nbsp;·&nbsp; Eternal mist</div>
+        <p>A fog-shrouded continent of cold stone towns, ancient forests, and human ironworks. Magic here is forgotten, outlawed, or feared as sickness. Those born with magic hide it or face execution.</p>
+        <div class="world-detail">Key Location: The Spire Town of Oakhaven</div>
       </div>
 
       <div class="world-panel realm-lyndere reveal">
-        <h3>The Magical Realm</h3>
-        <h4>Lyndere <em style="font-family: Cormorant Garamond; color: var(--cream-muted); font-size: 0.9rem;">(Lin-DEER)</em></h4>
-        <p>Temperate and luminescent, Lyndere is beautiful in the way a blade is beautiful—it will take your breath away and it will cut you. Magic is worshipped here, woven into every living thing. But something is fracturing, and the two realms are merging.</p>
-        <div class="world-detail">Luminescent &nbsp;·&nbsp; Magical &nbsp;·&nbsp; Merging crisis</div>
+        <h3>The Fae Realm</h3>
+        <h4>Lyndere</h4>
+        <p>A luminescent world governed by emotion-driven magic, ancient courts, and dangerous creatures. Separation from Greyveil has kept both realms stable—until now.</p>
+        <div class="world-detail">Key Location: The Crystal Court of Spires</div>
       </div>
 
       <div class="world-panel realm-magic reveal">
-        <h3>The Five Forces</h3>
-        <h4>Magic of the Realm</h4>
-        <p>Magic in Lyndere flows through five fundamental forces: emotion, dreams and the subconscious, music and sound, memory and time, and creatures and beasts.</p>
-        <div class="world-detail">Emotion &nbsp;·&nbsp; Dreams &nbsp;·&nbsp; Music &nbsp;·&nbsp; Memory &nbsp;·&nbsp; Beasts</div>
+        <h3>The Binding Magic</h3>
+        <h4>Blood &amp; Emotion</h4>
+        <p>Magic in the Lyndere universe is bound to memory and deep feeling. The stronger the emotional resonance between two people, the more volatile the power that flows between them.</p>
+        <div class="world-detail">Lore Element: The Soul-Thread Tether</div>
       </div>
 
       <div class="world-panel realm-threat reveal">
-        <h3>The Threat</h3>
-        <h4>The Vorrkai &amp; Malabriel</h4>
-        <p>The Vorrkai are predatory beings with iridescent skin and absorptive magic that feeds on others. Bound in shadow, their ancient leader seeks to tear open the seals between realms.</p>
-        <div class="world-detail">Absorptive magic &nbsp;·&nbsp; Exiled &nbsp;·&nbsp; Seal-breaker</div>
+        <h3>The Impending Threat</h3>
+        <h4>The Convergence</h4>
+        <p>The mist separating the two realms is thinning. Ancient gates are awakening, and both worlds must face what happens when humanity and immortals collide once again.</p>
+        <div class="world-detail">Lore Element: The Veil Fracture Event</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label reveal">✦ &nbsp; Reach Out &nbsp; ✦</p>
     <h2 class="reveal">Let's<br><em style="font-family: Cormorant Garamond; font-style: italic; color: var(--amethyst-light);">Connect</em></h2>
     <p class="reveal">For media inquiries, reader mail, or to say hello from your corner of the realm.</p>
 
-    <!-- Updated Formspree Form -->
-    <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mnpnekgv" method="POST">
+    <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mzeznlkw" method="POST">
       <div class="form-row">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" name="name" id="c-name" placeholder="Your name" required />
+          <input type="text" name="name" placeholder="Your name" required />
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" name="_replyto" id="c-email" placeholder="your@email.com" required />
+          <input type="email" name="email" placeholder="your@email.com" required />
         </div>
       </div>
       <div class="form-group">
         <label>Subject</label>
-        <select name="subject" id="c-subject" required>
+        <select name="subject" required>
           <option value="">Select a subject</option>
           <option>Reader Mail</option>
           <option>Media &amp; Press</option>
@@ -1150,109 +919,50 @@
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea name="message" id="c-message" placeholder="Write your message here..." required></textarea>
+        <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
       </div>
-      <button type="submit" class="submit-btn" id="c-submit-btn">✦ &nbsp; Send Message &nbsp; ✦</button>
+      <button type="submit" class="submit-btn">✦ &nbsp; Send Message &nbsp; ✦</button>
     </form>
-
-    <div class="form-success" id="contact-success">
-      ✦ &nbsp; Your message has been received. Until next time, dear reader. &nbsp; ✦
-    </div>
   </div>
 </section>
 
+<!-- ARC MODAL POPUP -->
 <div class="modal-overlay" id="arcModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeArcModal()">&times;</button>
-    <p class="section-label" style="text-align: center;">✦ &nbsp; Advanced Reader Copy &nbsp; ✦</p>
-    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; text-align: center; color: var(--cream); margin-bottom: 0.5rem;">
-      Join the Book 1 ARC Waitlist
-    </h3>
-    <p style="font-size: 0.85rem; text-align: center; margin-bottom: 1.8rem; color: var(--cream-muted);">
-      Receive an early review copy of <em>The Mist Between Us</em> before official release in exchange for an honest review.
-    </p>
-
-    <div id="arc-form-content">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" id="arc-name" placeholder="Your name" />
-      </div>
+    <p class="section-label">✦ &nbsp; Exclusive Reader Access &nbsp; ✦</p>
+    <h3 style="font-family: Cormorant Garamond; font-size: 2.2rem; color: var(--cream); margin-bottom: 0.5rem;">Join the ARC Waitlist</h3>
+    <p style="font-size: 0.85rem; color: var(--cream-muted); margin-bottom: 1.5rem;">Receive advanced reader digital copies of <em>The Mist Between Us</em> before official publication.</p>
+    
+    <form action="https://formspree.io/f/mqparvgg" method="POST">
       <div class="form-group">
         <label>Email Address</label>
-        <input type="email" id="arc-email" placeholder="your@email.com" />
+        <input type="email" name="email" placeholder="your@email.com" required />
       </div>
-      <div class="form-group">
-        <label>Preferred Platform (Goodreads, BookTok, Instagram, Amazon)</label>
-        <input type="text" id="arc-platform" placeholder="e.g. @username on TikTok or Goodreads profile" />
-      </div>
-      <button class="submit-btn" onclick="submitArcForm()" style="margin-top: 1rem;">
-        ✦ &nbsp; Reserve My ARC Spot &nbsp; ✦
-      </button>
-    </div>
-
-    <div class="form-success" id="arc-success">
-      ✦ &nbsp; You are on the waitlist! You will be notified as soon as ARCs are ready to distribute. &nbsp; ✦
-    </div>
+      <button type="submit" class="submit-btn">✦ &nbsp; Request ARC Spot &nbsp; ✦</button>
+    </form>
   </div>
 </div>
 
 <footer>
-  <div class="footer-brand">Everly Harlowe</div>
-  <p>© 2025 Everly Harlowe &nbsp;·&nbsp; All rights reserved</p>
+  <p class="footer-brand">Everly Harlowe</p>
+  <p>&copy; 2026 Everly Harlowe. All rights reserved. Adult Dark Romantasy Author.</p>
 </footer>
 
 <script>
   // Scroll reveal animation observer
-  const reveals = document.querySelectorAll('.reveal');
+  const observerOptions = { threshold: 0.15 };
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, observerOptions);
 
-  // Contact form submission handler
-const contactForm = document.getElementById('contact-form');
-const contactSuccess = document.getElementById('contact-success');
-const submitBtn = document.getElementById('c-submit-btn');
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async function (event) {
-    event.preventDefault(); // Stop default Formspree redirect
-    
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-
-    const data = new FormData(event.target);
-
-    try {
-      const response = await fetch(event.target.action, {
-        method: contactForm.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        contactForm.style.display = 'none';
-        contactSuccess.style.display = 'block';
-      } else {
-        alert('Oops! There was a problem submitting your form. Please try again.');
-        submitBtn.textContent = '✦   Send Message   ✦';
-        submitBtn.disabled = false;
-      }
-    } catch (error) {
-      alert('Oops! There was a network error. Please try again later.');
-      submitBtn.textContent = '✦   Send Message   ✦';
-      submitBtn.disabled = false;
-    }
-  });
-}
-
-  // ARC Modal Controls
+  // ARC Modal functionality
   function openArcModal() {
     document.getElementById('arcModal').classList.add('active');
   }
@@ -1261,49 +971,13 @@ if (contactForm) {
     document.getElementById('arcModal').classList.remove('active');
   }
 
-  function submitArcForm() {
-    const name = document.getElementById('arc-name').value;
-    const email = document.getElementById('arc-email').value;
-    if (!name || !email || !email.includes('@')) {
-      showCustomAlert('Please fill in your name and a valid email address.');
-      return;
+  // Close modal when clicking outside box
+  window.onclick = function(event) {
+    const modal = document.getElementById('arcModal');
+    if (event.target === modal) {
+      closeArcModal();
     }
-    document.getElementById('arc-form-content').style.display = 'none';
-    document.getElementById('arc-success').style.display = 'block';
   }
-
-  // Custom inline message notification banner
-  function showCustomAlert(msg) {
-    const notification = document.createElement('div');
-    notification.innerText = msg;
-    notification.style.position = 'fixed';
-    notification.style.bottom = '20px';
-    notification.style.right = '20px';
-    notification.style.backgroundColor = 'var(--deep-plum)';
-    notification.style.color = 'var(--gold-light)';
-    notification.style.border = '1px solid var(--gold)';
-    notification.style.padding = '1rem 1.5rem';
-    notification.style.zIndex = '2000';
-    notification.style.fontFamily = 'Raleway, sans-serif';
-    notification.style.fontSize = '0.85rem';
-    notification.style.boxShadow = '0 5px 20px rgba(0,0,0,0.8)';
-    document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 3500);
-  }
-
-  // Active link highlighters
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(sec => {
-      if (window.scrollY >= sec.offsetTop - 200) current = sec.id;
-    });
-    navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === '#' + current
-        ? 'var(--gold-light)' : '';
-    });
-  });
 </script>
 
 </body>
