@@ -1232,33 +1232,29 @@
   </div>
 </section>
 
+<!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label reveal">✦ &nbsp; Reach Out &nbsp; ✦</p>
     <h2 class="reveal">Let's<br><em style="font-family: Cormorant Garamond; font-style: italic; color: var(--amethyst-light);">Connect</em></h2>
     <p class="reveal">For media inquiries, reader mail, or to say hello from your corner of the realm.</p>
 
-    <!-- Substack Official Embed Box Component -->
-    <div class="reveal" style="margin-bottom: 3rem; display: flex; justify-content: center;">
-      <iframe src="https://everlyharlowe.substack.com/embed?transparent=1&light=1" width="100%" height="200" style="border: 0; background: transparent; max-width: 480px;" frameborder="0" scrolling="no"></iframe>
-    </div>
-
-    <div class="contact-form reveal" id="contact-form">
+    <!-- Updated Formspree Form -->
+    <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mnpnekgv" method="POST">
       <div class="form-row">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" id="c-name" placeholder="Your name" />
+          <input type="text" name="name" id="c-name" placeholder="Your name" required />
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" id="c-email" placeholder="your@email.com" />
+          <input type="email" name="_replyto" id="c-email" placeholder="your@email.com" required />
         </div>
       </div>
       <div class="form-group">
         <label>Subject</label>
-        <select id="c-subject">
+        <select name="subject" id="c-subject" required>
           <option value="">Select a subject</option>
-          <option>ARC Team &amp; Beta Reading</option>
           <option>Reader Mail</option>
           <option>Media &amp; Press</option>
           <option>Bookstagram / BookTok</option>
@@ -1267,10 +1263,10 @@
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea id="c-message" placeholder="Write your message here..."></textarea>
+        <textarea name="message" id="c-message" placeholder="Write your message here..." required></textarea>
       </div>
-      <button class="submit-btn" onclick="submitContact()">✦ &nbsp; Send Message &nbsp; ✦</button>
-    </div>
+      <button type="submit" class="submit-btn" id="c-submit-btn">✦ &nbsp; Send Message &nbsp; ✦</button>
+    </form>
 
     <div class="form-success" id="contact-success">
       ✦ &nbsp; Your message has been received. Until next time, dear reader. &nbsp; ✦
@@ -1331,17 +1327,43 @@
   reveals.forEach(el => observer.observe(el));
 
   // Contact form submission handler
-  function submitContact() {
-    const name = document.getElementById('c-name').value;
-    const email = document.getElementById('c-email').value;
-    const msg = document.getElementById('c-message').value;
-    if (!name || !email || !msg) { 
-      showCustomAlert('Please fill in all required fields.'); 
-      return; 
+const contactForm = document.getElementById('contact-form');
+const contactSuccess = document.getElementById('contact-success');
+const submitBtn = document.getElementById('c-submit-btn');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function (event) {
+    event.preventDefault(); // Stop default Formspree redirect
+    
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const data = new FormData(event.target);
+
+    try {
+      const response = await fetch(event.target.action, {
+        method: contactForm.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        contactForm.style.display = 'none';
+        contactSuccess.style.display = 'block';
+      } else {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+        submitBtn.textContent = '✦   Send Message   ✦';
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      alert('Oops! There was a network error. Please try again later.');
+      submitBtn.textContent = '✦   Send Message   ✦';
+      submitBtn.disabled = false;
     }
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('contact-success').style.display = 'block';
-  }
+  });
+}
 
   // ARC Modal Controls
   function openArcModal() {
